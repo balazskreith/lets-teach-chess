@@ -1,0 +1,367 @@
+@import "tailwindcss";
+
+:root {
+  /* Tomasz Chess Brand Colors */
+  --primary-brand: #0ea5e9;
+  --primary-brand-dark: #0284c7;
+  --primary-brand-light: #38bdf8;
+  --secondary-brand: #06b6d4;
+  --accent-brand: #8b5cf6;
+  
+  /* Light theme colors */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card-background: #f8fafc;
+  --border: #e2e8f0;
+  --muted: #64748b;
+  --muted-foreground: #94a3b8;
+  
+  /* Status colors */
+  --success: #059669;
+  --warning: #d97706;
+  --error: #dc2626;
+  --info: #0ea5e9;
+}
+
+/* Dark theme colors */
+.dark {
+  --background: #020617;
+  --foreground: #f1f5f9;
+  --card-background: #0f172a;
+  --border: #1e293b;
+  --muted: #475569;
+  --muted-foreground: #64748b;
+}
+
+/* Light theme colors (explicit) */
+.light {
+  --background: #ffffff;
+  --foreground: #1f2937;
+  --card-background: #f8fafc;
+  --border: #e5e7eb;
+  --muted: #6b7280;
+  --muted-foreground: #9ca3af;
+}
+
+/* =======================================
+   Theme: "Midnight Ember" — Pastel Orange on Dark
+   Palette:
+     --bg:         #0E1116  (background main)
+     --surface:    #1B1F26  (cards / panels)
+     --primary:    #F4A261  (soft pastel orange)
+     --primary-2:  #E78B3C  (hover / pressed)
+     --secondary:  #FFB86B  (glow / highlights)
+     --success:    #10B981
+     --error:      #EF4444
+     --text:       #E5E7EB  (primary text)
+     --text-muted: #9CA3AF  (secondary text)
+     --border:     #272B33
+   ======================================= */
+
+:root{
+  --bg: #0E1116;
+  --surface: #1B1F26;
+  /* sharper, more orange primary (less pastel) */
+  --primary: #FF8A3D;    /* was #F4A261 */
+  --primary-2: #E76A1B;  /* hover / pressed */
+  --secondary: #FFB86B;
+  --success: #10B981;
+  --error: #EF4444;
+  --text: #E5E7EB;
+  --text-muted: #9CA3AF;
+  --border: #272B33;
+
+  /* utility */
+  --radius: 10px;
+  --focus-ring: 0 0 16px rgba(255,138,61,0.18);
+}
+
+/* Base */
+html, body, #__next { height: 100%; }
+body{
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* generic surfaces */
+.bg-background { background: var(--bg) !important; }
+.bg-surface { background: var(--surface) !important; color: var(--text); }
+.surface {
+  /* use the dark surface color (no white gradient) */
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* cards / panels */
+.dashboard-card {
+  /* use the surface color instead of a light/white gradient */
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  /* subtle, darker shadow and a faint warm glow */
+  box-shadow:
+    0 10px 30px rgba(2,6,12,0.6),
+    0 0 18px rgba(244,162,97,0.04);
+}
+
+/* video preview tile */
+.video-preview {
+  background: #000; /* keep video area black for contrast */
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* inputs (darker) */
+.input, input, select, textarea {
+  background: rgba(255,255,255,0.02); /* very dark translucent */
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  outline: none;
+}
+.input:focus, input:focus, select:focus, textarea:focus {
+  box-shadow: var(--focus-ring);
+  border-color: var(--primary-2);
+}
+
+/* semantic utility classes */
+.bg-primary { background-color: var(--primary); color: #0E1116; }
+.bg-primary-2 { background-color: var(--primary-2); color: #0E1116; }
+.text-primary { color: var(--primary); text-shadow: 0 0 8px rgba(244,162,97,0.12); }
+.text-muted-foreground { color: var(--text-muted); }
+.text-primary-foreground { color: #0E1116; } /* dark text shown on primary buttons */
+
+.bg-muted { background-color: rgba(255,255,255,0.01); }
+.border-muted { border: 1px solid var(--border); }
+
+/* buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+.btn-primary {
+  background: var(--primary);
+  color: var(--text-primary-foreground);
+  box-shadow: 0 6px 22px rgba(255,138,61,0.10);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.btn-primary:hover {
+  background: var(--primary-2);
+  box-shadow: 0 10px 28px rgba(231,106,27,0.14);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn-danger {
+  background: var(--error);
+  color: #fff;
+}
+
+/* video preview tile */
+.video-preview {
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* small helpers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+.page-title { font-size: 1.125rem; font-weight: 700; margin: 0; color: var(--text); }
+.subtitle { color: var(--text-muted); font-size: 0.9rem; }
+
+/* focus / accessibility */
+:focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* borders / dividers */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0.5rem 0;
+}
+
+/* small screens: subtle adjustments */
+@media (max-width: 767px) {
+  .dashboard-card { border-radius: 8px; padding: 1rem; }
+}
+
+/* respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--card-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-brand);
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Dashboard card styles */
+.dashboard-card {
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease-in-out;
+}
+
+.dark .dashboard-card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.dark .dashboard-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Status indicators */
+.status-online {
+  color: var(--success);
+}
+
+.status-warning {
+  color: var(--warning);
+}
+
+.status-error {
+  color: var(--error);
+}
+
+.status-info {
+  color: var(--info);
+}
+
+/* Button hover states for better theme support */
+button:hover {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Input and form elements */
+input, textarea, select {
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary-brand);
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.1);
+}
+
+/* Dark mode improvements for charts */
+.dark .recharts-cartesian-grid line {
+  stroke: var(--border);
+  opacity: 0.5;
+}
+
+.dark .recharts-text {
+  fill: var(--muted-foreground);
+}
+
+/* Loading spinner */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* stronger meter visuals */
+.meter-stripes {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255,255,255,0.09) 15%,
+    rgba(255,255,255,0.00) 15%,
+    rgba(255,255,255,0.00) 50%,
+    rgba(255,255,255,0.09) 50%,
+    rgba(255,255,255,0.09) 85%,
+    rgba(255,255,255,0.00) 85%
+  );
+  background-size: 30px 30px;
+  mix-blend-mode: overlay;
+  animation: stripeMove 520ms linear infinite;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.meter-filled {
+  /* smooth round corners on the filled area */
+  border-radius: 8px 0 0 8px;
+}
+
+.meter-peak {
+  /* thin bright peak marker */
+  transition: left 120ms linear, opacity 200ms linear;
+}
+
+/* faster stripe animation */
+@keyframes stripeMove {
+  from { background-position: 0 0; }
+  to { background-position: 40px 0; }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "tomasz-chess",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.28.2",
+    "@observertc/client-monitor-js": "^4.0.3",
+    "@radix-ui/react-tabs": "^1.1.12",
+    "@uiw/react-json-view": "^2.0.0-alpha.32",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.522.0",
+    "mediasoup-client": "^3.12.5",
+    "next": "15.3.4",
+    "next-runtime-env": "^3.3.0",
+    "next-themes": "^0.4.6",
+    "react": "^19.0.0",
+    "react-chessboard": "^5.8.3",
+    "react-dom": "^19.0.0",
+    "recharts": "^3.0.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20.19.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

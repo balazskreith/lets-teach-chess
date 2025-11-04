@@ -1,18 +1,12 @@
-# Tomasz Chess# Tomasz Chess
+# Tomasz Chess
 
+A modern, real-time online chess application built with Next.js 15, TypeScript, and WebRTC. Play chess with friends in a peer-to-peer multiplayer environment.
 
+## Prerequisites
 
-A modern, real-time online chess application built with Next.js 15, TypeScript, and WebRTC.A modern, real-time online chess application built with Next.js 15, TypeScript, and WebRTC. Play chess with friends in a peer-to-peer multiplayer environment.
-
-
-
-## Prerequisites## Features
-
-
+## Features
 
 Before you begin, ensure you have the following installed:### 🎨 Design & UI
-
-
 
 - **Node.js**: Version 22 or higher- **Professional Design**: Clean, modern chess interface
 
@@ -22,9 +16,7 @@ Before you begin, ensure you have the following installed:### 🎨 Design & UI
 
 ### Checking Your Node Version- **Smooth Animations**: Subtle animations and transitions for better UX
 
-
-
-```bash### ♟️ Chess Features
+````bash### ♟️ Chess Features
 
 node --version
 
@@ -92,13 +84,13 @@ Start the development server with hot-reload:
 
 yarn dev1. **Navigate to the tomasz-chess directory**:
 
-```
+````
 
-   ```bash
+```bash
 
 Or with npm:   cd tomasz-chess
 
-   ```
+```
 
 ```bash
 
@@ -106,7 +98,7 @@ npm run dev2. **Install dependencies**:
 
 ```
 
-   ```bash
+````bash
 
 The application will be available at:   npm install
 
@@ -118,13 +110,13 @@ The application will be available at:   npm install
 
 ### Production Build
 
-   ```bash
+```bash
 
 To create an optimized production build:   npm run dev
 
-   ```
+````
 
-```bash
+````bash
 
 yarn build4. **Open your browser** and visit `http://localhost:3000`
 
@@ -250,13 +242,13 @@ By default, the app runs on port 3000. To use a different port:
 
 PORT=3001 yarn dev### Color Scheme
 
-```
+````
 
 The dashboard uses CSS custom properties for theming. Colors can be customized in `src/app/globals.css`:
 
 ## Troubleshooting
 
-```css
+````css
 
 ### Port Already in Use:root {
 
@@ -272,13 +264,13 @@ If port 3000 is already in use:  --success: #10b981;
 
 lsof -ti:3000 | xargs kill -9}
 
-```
+````
 
 # Or use a different port
 
 PORT=3001 yarn dev### Data Sources
 
-```
+````
 
 Currently uses mock data, but can be easily connected to real APIs by modifying the data fetching logic in `src/app/page.tsx`.
 
@@ -314,7 +306,7 @@ yarn install- Database connections
 
 yarn dev- Monitoring services (Prometheus, Grafana, etc.)
 
-```
+````
 
 ## Performance Features
 
@@ -326,7 +318,7 @@ Currently, the application uses default configuration. For custom settings, crea
 
 - **Image Optimization**: Built-in Next.js image optimization
 
-```env- **Lazy Loading**: Components load as needed
+````env- **Lazy Loading**: Components load as needed
 
 NEXT_PUBLIC_CONTROLLER_URL=http://your-controller-url:8080
 
@@ -370,3 +362,4 @@ This project is the Tomasz Chess application.
 
 Built with ❤️ using modern web technologies
 # lets-teach-chess
+````
