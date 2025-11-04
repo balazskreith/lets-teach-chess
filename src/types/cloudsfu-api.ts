@@ -1,4 +1,3 @@
-export const TOMASZ_CHESS_API_SCHEMA_VERSION = '1.0.0';
 export type SnapshotMetaData = {
     createdAt: number,
     sfuId?: string,
