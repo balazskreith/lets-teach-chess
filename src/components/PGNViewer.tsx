@@ -17,7 +17,7 @@ const PGNViewer: React.FC<{ pgn: string }> = ({ pgn }) => {
 
   return (
     <div className="flex flex-col items-center">
-      <Chessboard position={fen} />
+      <Chessboard options={{ position: fen }} />
     </div>
   );
 };
