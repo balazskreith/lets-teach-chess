@@ -1,0 +1,686 @@
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Związanie"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Związanie"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/fMMrYmH9"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "4r1k1/8/3R1Qpp/2p5/2P1p1q1/P3P3/1P2PK2/8 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... Rf8 { [%csl Gf2,Gf6] } 2. Rd8 (2. Qxf8+) 2... Qh4+ 3. Kg2 Qxf6 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Podwójne uderzenie"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Podwójne uderzenie"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/JxYFyOv2"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "r5k1/1b2qppp/p3p3/3rN3/Q1PP4/3R4/5PPP/2R3K1 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... Qg5 (1... Rxe5 { [%cal Gb7g2] } 2. dxe5 Qg5 { [%csl Gc1] }) 2. f4 (2. Qc2 { [%csl Gd4][%cal Gd5e5,Gd3g3] } 2... Rxe5) (2. Rf1 Rxe5 3. Rg3) (2. cxd5 Qxc1+ 3. Rd1 Qg5 4. Qd7 Bxd5 5. Qxf7+ Kh8) (2. Re1 Rxe5) 2... Qxf4 3. Rf1 { [%cal Gc4d5] } *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Rentgen"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Rentgen"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/qv2NjkW9"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "3r3k/3P2pp/p3q3/1pR1P3/2p5/Q5PP/P4P1K/8 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Rc8 Qxd7 { [%csl Gd7,Gd8] } (1... Rxc8 2. Qd6 (2. Qe7 Qg8 3. dxc8=Q Qxc8 4. e6) (2. dxc8=Q+ Qxc8 3. Qd6 (3. Qe7)) 2... Qg8 3. dxc8=Q Qxc8 4. e6 Kg8 (4... Qe8 5. e7) 5. e7 (5. Qd7 Qf8 6. Kg2 c3 7. e7 Kf7 8. Qe6+ Kxe6 9. exf8=Q c2 10. Qc8+) 5... Kf7 6. Qd8) (1... Qg8 2. Rxd8 Qxd8 3. e6 (3. Qd6 Kg8 4. e6)) (1... Qd6) (1... Qe7) 2. Qf8+ { [%csl Gc8] } 2... Rxf8 3. Rxf8# *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: rentgen diagonalny"]
+[Date "2023.09.16"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "rentgen diagonalny"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/BkqWlxvG"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "4Q1rk/1B1R3p/pq5p/1p6/2pb4/2B2pPP/P1n2P1K/5r2 w - - 0 3"]
+[SetUp "1"]
+[UTCDate "2023.09.16"]
+[UTCTime "09:18:51"]
+
+3. Qe5+ Bxe5 4. Bxe5+ Rg7 5. Bxg7+ Kg8 6. Bd5+ Qe6 7. Bxe6# *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: prosty rentgen"]
+[Date "2023.09.13"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "prosty rentgen"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/i5FdQj2Q"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "2Rr3k/3q2pp/p7/1p2P3/2p5/5RPP/P4P1K/8 w - - 1 2"]
+[SetUp "1"]
+[UTCDate "2023.09.13"]
+[UTCTime "14:39:39"]
+
+2. Rf8+ Rxf8 3. Rxf8# *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Odciągnięcie"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Odciągnięcie"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/mmUMkJo1"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "5Q2/3b1ppk/pp5p/4p3/PP2P1P1/1BPqbP2/7P/3NK3 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... Be6 { [%csl Gd3,Gd1][%cal Gc3c4,Gd2e2,Ge2e3] } (1... Qd2+ 2. Kf1 Be6) 2. Bxe6 { [%csl Gd1][%cal Gd3d2,Ge1f1,Gd2d1,Gf1g2,Gd1g1,Gg2h3,Gg1f1,Gh3h4,Ge3f2,Gh4h5,Gg7g6] } 2... Qd2+ 3. Kf1 Qxd1+ 4. Kg2 Qg1+ 5. Kh3 Qf1+ 6. Kg3 { [%csl Ge3][%cal Ge3f4,Gg3h4,Gg7g5] } (6. Kh4 Bf2+ 7. Kh5 g6#) 6... Bf2# (6... Bf4+ 7. Kh4 g5+ 8. Kh5 Qh3#) *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Zaciągnięcie"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Zaciągnięcie"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/bgGO2ZK6"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "6N1/8/2k3P1/4p3/4q3/8/B6K/8 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Bd5+ Qxd5 (1... Kxd5 2. Nf6+) (1... Kd6) 2. Ne7+ { [%csl Gg6] } 2... Kd6 3. Nxd5 Ke6 4. Kg3 e4 5. Kf4 e3 6. Kxe3 { [%csl Ge6] } 6... Kxd5 7. g7 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Przesłonięcie"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Przesłonięcie"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/XxvKremx"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "8/2p1q1kp/3p2p1/7P/4bQ2/1BP5/1P4P1/6K1 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. h6+ Kh8 2. Be6 d5 (2... c5 3. Qxe4) (2... Qxe6 3. Qf8+ Qg8 4. Qf6+ Qg7 5. Qxg7#) (2... Bf5 3. Qd4+ Qf6 4. Qxf6#) 3. Qe5+ Qf6 4. Qxf6# *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Atak z odsłony"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Atak z odsłony"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/Gy8R7oHv"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "7k/p1p1nr1p/2bp4/2p2P1q/4P1rN/5R2/P1PB2PQ/4R1K1 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Rh3 { [%csl Gh4] } (1. Ng6+ Nxg6 (1... hxg6 2. Rh3 Rh7 { [%csl Gh3][%cal Gh5h3,Ge1e3] } 3. Rxh5 (3. fxg6) (3. Ree3 Rh4 (3... Bxe4) 4. Rxh4 Qxh4 5. Rh3 Nxf5 6. exf5 Qd4+ { [%cal Gg1h1,Gd2c3] } 7. Kh1 Rxh3 8. Qxh3+ Kg8 9. Bc3 Qd1+ 10. Kh2 Qh5 11. fxg6 Qxg6 12. Qh6) 3... Rxh5 { [%csl Gh2] } 4. Qxh5+ gxh5 { [%csl Gf5,Ge7] })) 1... Rfg7 (1... Kg8 2. Ng6 { [%csl Gg4] }) (1... Rxh4 2. Rxh4 { [%csl Gh4] }) (1... Bxe4 2. Ng6+ Nxg6 (2... hxg6 { [%cal Gh3h5,Gg6h5,Gh2h5,Gh5g4] }) 3. Rxh5 Rxg2+ 4. Qxg2 Bxg2 5. Kxg2 (5. fxg6)) 2. Ng6+ hxg6 3. fxg6 (3. Rxh5+ gxh5 4. Qxh5+ { [%csl Gg2][%cal Ge1e2,Gc6e4] } 4... Kg8 5. Bh6 (5. f6 Rxg2+ 6. Kh1 Bxe4)) 3... Qxh3 4. Qxh3+ Kg8 5. Qxg4 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Szach z odsłony"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Szach z odsłony"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/FsjmvhUC"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "k7/p2p2pp/3R1b2/5p2/8/P5B1/q4PPP/1R4K1 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Rb8+ (1. Rdd1 Bb2 (1... a5 2. Rb8+ Ka7 3. Rxd7+ Ka6 4. Rd6+ Ka7 5. Rd7+)) (1. Rbd1 Qxa3 2. Rxd7 a5 3. Rf7) 1... Kxb8 { [%cal Gd6d2] } 2. Rb6+ { [%csl Gb8][%cal Gb8a8,Gb8c8] } (2. Rd2+) 2... Kc8 3. Rb8# *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Podwójny szach"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Podwójny szach"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/C93adkbW"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "1r3rk1/5p1p/4b1pQ/8/3N4/1q6/1B3PPP/1K6 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Qg7+ Kxg7 2. Nf5+ { [%csl Gb2] } (2. Nxe6+ Kg8) 2... Kg8 { [%cal Gf5h6,Gf5e7] } 3. Nh6# { [%csl Gh6] } (3. Ne7#) *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Zniszczenie obrońcy"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Zniszczenie obrońcy"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/9VsnWNTF"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "4rb1k/p2q2pp/1p3p2/2p5/7Q/1P1Pr1P1/P3PR1P/B4RK1 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Rxf6 { [%cal Gd7e7] } (1. Bxf6 gxf6 2. Qxf6+ Bg7 (2... Qg7 3. Qxf8+ (3. Qxg7+ Bxg7) 3... Rxf8 4. Rxf8+)) 1... gxf6 (1... Qe7 2. Rxf8+ (2. Rf7) 2... Rxf8 3. Qxe7 Rxf1+) (1... Kg8 2. Rxf8+ Rxf8 3. Rxf8+ Kxf8 4. Qf4+) 2. Qxf6+ (2. Bxf6+ Bg7) (2. Rxf6 Bg7) 2... Bg7 { [%cal Gf6f8,Gg7f8] } (2... Qg7 3. Qxf8+ Rxf8 4. Rxf8#) (2... Kg8 3. Qh8#) 3. Qf8+ { [%cal Ga1a3] } (3. Qxg7+ Qxg7) 3... Rxf8 4. Rxf8# *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Oswobodzenie pola"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Oswobodzenie pola"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/lHtO5X9t"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "1k1r1b1r/p1p3qp/1p6/4pp2/8/P1NbBQPP/1P1N4/2KR3R b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... e4 { [%cal Gg7c3] } (1... Bxa3 2. bxa3 (2. Qc6) 2... e4 { [%cal Gg7a1,Gd2b1,Ga1b1,Gc1d2,Gb1c2,Gf5e4] } 3. Bd4) 2. Qf4 { [%csl Gc3,Ga3][%cal Gb2c3] } (2. Qxf5 Qxg3 (2... Qxc3+ 3. bxc3 Bxa3#) 3. Bf4) (2. Ndxe4 fxe4 3. Nxe4) 2... Qxc3+ 3. bxc3 Bxa3# *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Oswobodzenie linii"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Oswobodzenie linii"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/Fu8b53GH"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "r1b2rk1/ppp2ppp/2n3q1/b2N2N1/2BP4/4p2P/PPP3P1/R2Q1RK1 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Nxf7 (1. Nf6+ gxf6 2. Nxf7 Rxf7 3. Bxf7+ Qxf7) (1. Nxc7 Bxc7 (1... Qxg5 2. Nxa8 Bxh3 3. Qf3 Bg4 4. Bxf7+ Kh8 5. Qg3 Rxa8)) (1. Nxh7 { [%csl Gg6,Gh7] } 1... Qxh7) (1. Rxf7 Rxf7 (1... Be6 { [%cal Gg5e6,Gg6e6,Gf7f8,Gg8f8] }) 2. Ne7+) (1. Ne7+ Nxe7) 1... Rxf7 (1... Be6 2. Ne5 (2. Nf4 { [%cal Ge6c4,Gf4g6] } 2... Qf6 3. Bxe6) (2. Ne7+ Nxe7) 2... Nxe5 3. dxe5 Rfd8 { [%csl Gc7] } 4. Qf3 e2 5. Rf2) 2. Ne7+ { [%csl Gc4] } 2... Nxe7 3. Bxf7+ Qxf7 4. Rxf7 Kxf7 5. Qh5+ { [%csl Ge3,Ga5][%cal Gf7f8,Ga1f1] } 5... Kf8 6. Rf1+ Kg8 (6... Bf5 7. Rxf5+ Nxf5 8. Qxf5+ Kg8 9. Qxa5) *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Oswobodzenie przekątnej"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Oswobodzenie przekątnej"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/2BSppyN1"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "rnb3k1/ppq1b1p1/2p4p/4p1N1/2P1B3/6P1/PPQ2P1P/R1B2RK1 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Bd5+ (1. Bh7+ Kh8 (1... Kf8) 2. Nf7#) 1... Kf8 { [%csl Gg5] } (1... cxd5 2. Qh7+ Kf8 3. Qh8#) 2. Qh7 (2. Nh7+ Ke8 3. Qg6+ Kd7 4. Qe6+ Kd8 5. Qg8+ Kd7 6. Be6+ Kd6 7. Rd1+ Kc5 8. Be3+ Kb4 9. Bxc8) 2... Bxg5 3. Qg8+ Ke7 4. Bxg5+ hxg5 5. Qf7+ Kd6 6. c5+ *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Oswobodzenie linii i przekątnej"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Oswobodzenie linii i przekątnej"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/36uKdZbs"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "5r1k/p2r3p/1p2q3/3bb3/3R1p2/P1BQpP2/1P2P1BP/6RK w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Bh3 Qxh3 2. Rxf4 Rxf4 3. Bxe5+ *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Blokada pola"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Blokada pola"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/8EgXorUg"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "r4rk1/1pq1n1p1/p2pbP2/5p1Q/5P2/2P4R/P1PB2PP/R6K w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+{ [%csl Gg8,Gf6][%cal Gf6e7] }
+1. f7+ { [%csl Gf7] } 1... Rxf7 2. Qh8# *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Wieczny szach"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Wieczny szach"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/V5m47H5J"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "3r1rk1/5ppp/3b4/8/2B5/1Q2PPPq/P1P4P/R2R2K1 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... Bxg3 2. hxg3 (2. Bf1 Qxh2#) 2... Qxg3+ 3. Kf1 Qxf3+ 4. Ke1 { [%csl Ge2][%cal Gd8d1,Ge2f3,Gf3e4,Gf8e8] } 4... Qh1+ 5. Ke2 Qg2+ 6. Ke1 { [%csl Gg2] } 6... Qg3+ 7. Kf1 Qf3+ 8. Kg1 Qg3+ 9. Kf1 Qf3+ *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Motyw patowy"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Motyw patowy"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/QXVbGaOO"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "2r5/8/8/8/pR1R4/k7/8/1K6 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... Rb8 (1... Rc4 2. Rbxc4) 2. Rxb8 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Prześladowanie przeciwnika"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Prześladowanie przeciwnika"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/uXSHPWxn"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "1r5r/4ppk1/2npbnp1/qp1N3p/4P3/P3BP2/1Q4PP/1N1R1RK1 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Nxe7 (1. Bg5 Bxd5 2. Rxd5 Ne5 3. f4 { [%csl Ge5] } (3. Bxf6+ exf6) 3... Nc4 (3... Nxd5 4. fxe5 Nb6 5. exd6+ (5. e6+ f6 6. Rxf6 exf6 7. Qxf6+ Kg8 8. Qf7#)) (3... Nxe4 4. fxe5 Nxg5 5. e6+ (5. exd6+)) 4. Qd4 (4. Qa1 Ne3 5. Bxf6+ exf6 6. Rxd6 Nxf1 7. Qxf6+ Kh6 (7... Kg8)) 4... Qb6) (1. Bd2 Qa7+ 2. Be3 Qd7 3. Nb6 Qb7 4. Qxb5 Nd7 { [%csl Gb6] } 5. Qb2+ Kh7) (1. g4) (1. Nxf6 exf6 2. Bg5) (1. f4) 1... Nxe7 2. Qxf6+ (2. Rxd6 Rhd8 { [%csl Gf6][%cal Ge4e5] }) (2. e5 dxe5 3. Qxe5 Nd5 4. Rxd5 Bxd5 5. Bd4 Qd8 6. Nc3 Bc6) 2... Kxf6 3. Bd4+ { [%csl Gf6,Ge5] } 3... Kg5 { [%cal Gd4g7,Gh6e3] } 4. Be3+ Kh4 5. Bf2+ Kg5 6. Be3+ Kf6 7. Bd4+ Kg5 8. Be3+ Kh4 9. Bf2+ *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Blokada i śmiertelny szach"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Blokada i śmiertelny szach"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/33hG5NIT"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "3n1r1k/1pp2p1p/1r3p1N/p4N1Q/4P1R1/1Pq3PK/P6P/8 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Qxf7 { [%cal Gc3c5] } (1. Rg8+ Rxg8 2. Qxf7 Rxg3+ 3. hxg3 Nxf7) 1... Nxf7 (1... Rxf7 { [%csl Gf7] } 2. Rg8#) 2. Rg8+ Rxg8 3. Nxf7# { [%csl Gf5,Gg7] } *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Rozerwanie struktury pionowej"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Rozerwanie struktury pionowej"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/39IejBzn"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "r4rk1/p1p5/1p1pp3/2P2p1q/2PPn1p1/1Q1BPbP1/PBR2P1P/4R1K1 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... Qxh2+ (1... Rf7 2. h4 gxh3 3. Kh2) 2. Kxh2 Rf6 (2... Kg7 3. Bf1 (3. d5+ e5 (3... Kg6 { [%cal Gf8h8] } 4. Kg1 Rh8 5. Bxh8 Rxh8 6. Bf1 Rh1#) 4. Kg1 Rh8) 3... Rh8+ 4. Bh3 Rxh3+ 5. Kg1 Rh1#) (2... Kf7) 3. Kg1 Rh6 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Przegroda"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Przegroda"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/V3fTT2gf"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "r3k2r/pp1q1ppp/1b6/3p4/Q7/B7/P4PPP/3R1RK1 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Rxd5 { [%csl Gd7] } (1. Rfe1+ Kd8 2. Rxd5 Qxd5 3. Rd1 { [%csl Gd1][%cal Gh8e8] } 3... Qxd1+ 4. Qxd1+ Ke8 { [%cal Gd1d6] } 5. Qd6 { [%cal Gb6b7] } 5... Bd8 6. Qe5+ Kd7 7. Qxg7) 1... Qxa4 2. Re1+ { [%csl Ge8][%cal Gd8d2] } *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Decydujący ruch"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Decydujący ruch"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/2auVUQe5"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "8/p1Q3pk/1p3r2/8/6Pp/PPR2P1K/8/4q3 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... Rf7 (1... Qh1+ 2. Qh2 Qf1+ (2... Rxf3+ 3. Rxf3 Qxf3+ 4. Kxh4) 3. Qg2) (1... Rxf3+ 2. Rxf3 Qh1+ 3. Qh2 Qxf3+ 4. Kxh4) 2. Qh2 (2. Rc1) 2... Qxc3 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Przełom pionowy"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Przełom pionowy"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/hgHcMBBw"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "8/2n5/3p4/2kPp3/4Pp2/N1K2Pp1/6P1/8 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... Nxd5+ 2. exd5 { [%csl Gg3][%cal Gf4f3] } (2. Kd3 Ne3) 2... e4 { [%csl Gf4] } 3. Nc4 (3. fxe4 f3) (3. Kd2 exf3 4. gxf3 g2) (3. Nc2 exf3 4. Ne1 f2) 3... exf3 4. Nd2 { [%cal Gf3g2,Gd2f3,Gc5d5,Gc3d3] } 4... f2 (4... fxg2 5. Nf3) 5. Kd3 (5. Nf1 f3) 5... f3 6. gxf3 g2 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Wolny pion"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Wolny pion"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/nIByfqtG"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "rnbqk2r/1p1n1p2/p3p1pp/2pNP1PQ/3P4/8/PPP2PP1/2KR1BNR w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Qxh6 Rxh6 2. gxh6 Nf8 3. Nf6+ Ke7 4. d5 Qa5 (4... exd5 5. Nxd5+ Ke6 6. Nf4+) 5. d6+ Kd8 6. h7 Qxa2 7. h8=Q *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Poświęcenie na polu h7/h2"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Poświęcenie na polu h7/h2"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/TNybwqyi"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "r1b2rk1/1p2qppp/p3p3/2n5/3N4/3B1R2/PPP1Q1PP/3R2K1 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Bxh7+ Kxh7 2. Rh3+ Kg8 3. Nf5 (3. Qh5 { [%cal Gf7f5] } 3... f6 (3... f5 4. Qh7+ Kf7)) 3... Qg5 4. Qh5 (4. Nh6+ gxh6 5. Rg3) 4... Qxh5 5. Ne7+ Kh8 6. Rxh5# *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Poświęcenie na polu g7/g2"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Poświęcenie na polu g7/g2"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/Dtpb8PUj"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "3r2k1/pb5p/1p2qpp1/8/2p5/1P1nP3/P1N2PPP/1Q1R1R1K b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... Bxg2+ 2. Kxg2 Qg4+ 3. Kh1 { [%cal Gd3f2] } 3... Qf3+ (3... Nxf2+ 4. Rxf2 Rxd1+ 5. Qxd1 Qxd1+ 6. Kg2) 4. Kg1 Rd5 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Poświęcenie na polu f7/f2"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Poświęcenie na polu f7/f2"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/AtLFJXAZ"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "r1bqkbnr/pp3pp1/2p4p/3n2N1/2BP4/5N2/PPP2PPP/R1BQK2R w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Nxf7 Kxf7 2. Ne5+ Ke6 (2... Ke7 3. Ng6+) (2... Kf6 3. Qf3+ Bf5 (3... Ke6 4. Bxd5+ cxd5 5. Qf7+ Kd6 6. b3) 4. g4) 3. Qg4+ Kd6 4. Nf7+ Kc7 5. Qg3+ Bd6 { [%cal Gf7d8,Gd6g3,Gd8e7] } 6. Nxd8 Bxg3 7. Nf7 Bxf2+ 8. Kxf2 Rh7 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Poświęcenie na polu h6/h3"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Poświęcenie na polu h6/h3"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/YTjisIn7"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "rr1q2k1/1p2bpp1/2p1p2p/P1Pn4/2NP4/3Q1RP1/5PKP/2B1R3 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Bxh6 gxh6 2. Rxf7 Kxf7 3. Ne5+ (3. Qh7+ Ke8 4. Ne5 Qxa5 5. Qg8+ Bf8 6. Qf7+ Kd8 7. Qd7#) 3... Kf8 4. Qh7 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Poświęcenie na polu g6/g3"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Poświęcenie na polu g6/g3"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/UhJYhnXD"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "6R1/6Q1/3q2p1/5p1p/P3p1k1/1P1r2P1/5PK1/8 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+{ [%csl Gg2,Gg3] }
+1... Rxg3+ 2. fxg3 Qd2+ 3. Kf1 Kf3 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Mat na ostatniej linii"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Mat na ostatniej linii"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/EBq71JP9"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "1q2r1k1/2p2pb1/R4npp/2N2b2/2P5/4BN2/1P4PP/2Q3K1 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... Ng4 2. Bd4 Bxd4+ 3. Nxd4 Qxb2 { [%csl Ge8] } (3... Qb4) 4. Qf1 { [%cal Gb2d4] } (4. Qxb2 Re1# { [%csl Gf2,Gg4] }) (4. Ra1 Qxd4+ 5. Kh1 Nf2+ 6. Kg1) 4... Qxd4+ 5. Kh1 Qf4 6. Qg1 Re1 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Zugzwang"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Zugzwang"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/QLzvrsc7"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "4K2k/6pp/7b/8/P7/8/1B6/8 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1. Kf7 Bg5 2. Bxg7# *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Ukryty szach"]
+[Date "2023.05.19"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Ukryty szach"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/UfiwTWil"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "5rk1/2p3qp/1p1p1r2/p2R4/2P5/PPKQP3/8/3R4 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.05.19"]
+[UTCTime "08:56:21"]
+
+1... c6 { [%csl Gf6] } (1... h6 2. Rh5 Rf5+) 2. Rd4 c5 3. Rd5 Rf2+ 4. Rd4 *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Rozdział 35"]
+[Date "2023.09.17"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Rozdział 35"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/jAVGZy4a"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "7k/8/5n2/4B3/8/8/8/K7 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.09.17"]
+[UTCTime "14:48:42"]
+
+ *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Rozdział 36"]
+[Date "2023.09.17"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Rozdział 36"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/2eywE14W"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "7n/8/5k2/4B3/8/8/8/K7 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.09.17"]
+[UTCTime "14:49:01"]
+
+{ [%csl Gg7] }
+ *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Rozdział 37"]
+[Date "2023.09.24"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Rozdział 37"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/LrChEws7"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "5Q2/3b1ppk/pp5p/4p3/PP2P1P1/1BPqbP2/7P/3NK3 b - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.09.24"]
+[UTCTime "07:39:10"]
+
+1... Be6 (1... Qd2+ 2. Kf1 Be6 3. Nxe3) 2. Nxe3 (2. Bc2 Qd2+ 3. Kf1 Bd5 (3... Bc4+)) 2... Qxe3+ 3. Kf1 Bxb3 (3... Qxf3+ 4. Kg1 Qxg4+) *
+
+
+[Event "Kombinacje (motywy taktyczne) kurs instruktorów: Rozdział 38"]
+[Date "2023.09.24"]
+[Result "*"]
+[Variant "Standard"]
+[ECO "?"]
+[Opening "?"]
+[StudyName "Kombinacje (motywy taktyczne) kurs instruktorów"]
+[ChapterName "Rozdział 38"]
+[ChapterURL "https://lichess.org/study/9Ck0EPHb/blxuaeUW"]
+[Annotator "https://lichess.org/@/CentrumSzachowe"]
+[FEN "3q4/5B2/8/6R1/8/k2b2R1/8/6K1 w - - 0 1"]
+[SetUp "1"]
+[UTCDate "2023.09.24"]
+[UTCTime "08:26:44"]
+
+1. Bd5 *
+

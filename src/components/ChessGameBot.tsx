@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Chessboard } from "react-chessboard";
 import type { SquareHandlerArgs, PieceDropHandlerArgs } from "react-chessboard";
 
-const ClickOrDragToMove: React.FC = () => {
+const ChessGameBot: React.FC = () => {
     // create a chess game using a ref to always have access to the latest game state within closures and maintain the game state across renders
     const chessGameRef = useRef(new Chess());
     const chessGame = chessGameRef.current;
@@ -368,4 +368,4 @@ const ClickOrDragToMove: React.FC = () => {
     );
 };
 
-export default ClickOrDragToMove;
+export default ChessGameBot;
