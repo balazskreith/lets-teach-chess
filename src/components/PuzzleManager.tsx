@@ -1,12 +1,13 @@
-"use client";
-
 import React, { useState } from "react";
 import { Chess } from "chess.js";
 import { Chessboard } from "react-chessboard";
+import TagHandler from "./TagHandler";
 
 export default function PuzzleManager() {
-  const [position, setPosition] = useState("start");
+  const [position, setPosition] = useState("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
   const [fenInput, setFenInput] = useState("");
+  const [pgnInput, setPgnInput] = useState("");
+  const [tags, setTags] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   const handleSetPosition = () => {
@@ -32,7 +33,7 @@ export default function PuzzleManager() {
   };
 
   const handleResetPosition = () => {
-    setPosition("start");
+    setPosition("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
     setFenInput("");
     setError(null);
   };
@@ -41,9 +42,86 @@ export default function PuzzleManager() {
     setFenInput(position);
   };
 
+  const handleLoadPGN = () => {
+    if (!pgnInput.trim()) {
+      setError("Please enter a PGN string");
+      return;
+    }
+
+    try {
+      // Parse PGN headers to get FEN if present
+      const fenMatch = pgnInput.match(/\[FEN\s+"([^"]+)"]/);
+      const startFen = fenMatch ? fenMatch[1] : undefined;
+
+      // Clean PGN: remove comments in braces, parenthetical variations, and annotations
+      let cleanedPgn = pgnInput.trim();
+
+      // Remove comments in braces {comment}
+      cleanedPgn = cleanedPgn.replace(/\{[^}]*}/g, ' ');
+
+      // Remove variations in parentheses (variation)
+      cleanedPgn = cleanedPgn.replace(/\([^)]*\)/g, ' ');
+
+      // Remove NAG annotations like $1, $2, etc.
+      cleanedPgn = cleanedPgn.replace(/\$\d+/g, ' ');
+
+      // Remove annotation symbols !!, !, !?, ?!, ?, ??
+      cleanedPgn = cleanedPgn.replace(/[!?]{1,2}/g, ' ');
+
+      // Normalize whitespace
+      cleanedPgn = cleanedPgn.replace(/\s+/g, ' ').trim();
+
+      const game = new Chess(startFen);
+
+      // Load cleaned PGN
+      game.loadPgn(cleanedPgn, {
+        strict: false,
+        newlineChar: '\n'
+      });
+
+      setPosition(game.fen());
+      setError(null);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : "Invalid PGN string";
+      setError(`Invalid PGN string: ${errorMessage}`);
+      console.error("PGN parsing error:", err);
+    }
+  };
+
   return (
     <div className="flex flex-col lg:flex-row items-start gap-6" style={{ maxWidth: "1200px", width: "100%" }}>
-      {/* Left side - Controls */}
+      {/* Left side - Chessboard */}
+      <div className="flex flex-col items-center gap-4" style={{ flex: "1" }}>
+        <div style={{ maxWidth: "600px", width: "100%" }}>
+          <Chessboard options={{ position }} />
+        </div>
+
+        <div
+          className="p-3 rounded"
+          style={{
+            background: "var(--surface)",
+            border: "1px solid var(--border)",
+            maxWidth: "600px",
+            width: "100%",
+          }}
+        >
+          <div style={{ color: "var(--text-muted)", fontSize: "12px", fontWeight: "500", marginBottom: "4px" }}>
+            Current Position:
+          </div>
+          <div
+            style={{
+              color: "var(--text)",
+              fontFamily: "monospace",
+              fontSize: "13px",
+              wordBreak: "break-all",
+            }}
+          >
+            {position}
+          </div>
+        </div>
+      </div>
+
+      {/* Right side - Controls */}
       <div className="flex flex-col gap-4" style={{ flex: "1", minWidth: "300px" }}>
         <div
           className="p-4 rounded"
@@ -79,6 +157,33 @@ export default function PuzzleManager() {
             />
           </div>
 
+          <div className="mb-4">
+            <label className="block mb-2" style={{ color: "var(--text)", fontWeight: "500" }}>
+              PGN
+            </label>
+            <textarea
+              value={pgnInput}
+              onChange={(e) => setPgnInput(e.target.value)}
+              placeholder="Enter PGN string..."
+              rows={5}
+              style={{
+                width: "100%",
+                padding: "12px",
+                borderRadius: "6px",
+                background: "rgba(255,255,255,0.03)",
+                color: "var(--text)",
+                border: "1px solid var(--border)",
+                fontFamily: "monospace",
+                fontSize: "13px",
+                resize: "vertical",
+              }}
+            />
+          </div>
+
+          <div className="mb-4">
+            <TagHandler tags={tags} onTagChange={setTags} />
+          </div>
+
           {error && (
             <div
               style={{
@@ -106,7 +211,20 @@ export default function PuzzleManager() {
                 cursor: "pointer",
               }}
             >
-              Set Position
+              Set Position from FEN
+            </button>
+
+            <button
+              onClick={handleLoadPGN}
+              className="w-full py-2 px-4 rounded font-semibold"
+              style={{
+                background: "var(--primary-brand)",
+                color: "#fff",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              Load PGN
             </button>
 
             <button
@@ -168,42 +286,11 @@ export default function PuzzleManager() {
               paddingLeft: "20px",
             }}
           >
-            <li>Enter a FEN string to set a custom position</li>
-            <li>Click "Set Position" to apply</li>
+            <li>Enter a FEN string and click "Set Position from FEN"</li>
+            <li>Or paste a PGN and click "Load PGN" to see the final position</li>
             <li>Use "Get Current FEN" to copy the current position</li>
             <li>Drag pieces to arrange the position manually (coming soon)</li>
           </ul>
-        </div>
-      </div>
-
-      {/* Right side - Chessboard */}
-      <div className="flex flex-col items-center gap-4" style={{ flex: "1" }}>
-        <div style={{ maxWidth: "600px", width: "100%" }}>
-          <Chessboard options={{ position }} />
-        </div>
-
-        <div
-          className="p-3 rounded"
-          style={{
-            background: "var(--surface)",
-            border: "1px solid var(--border)",
-            maxWidth: "600px",
-            width: "100%",
-          }}
-        >
-          <div style={{ color: "var(--text-muted)", fontSize: "12px", fontWeight: "500", marginBottom: "4px" }}>
-            Current Position:
-          </div>
-          <div
-            style={{
-              color: "var(--text)",
-              fontFamily: "monospace",
-              fontSize: "13px",
-              wordBreak: "break-all",
-            }}
-          >
-            {position}
-          </div>
         </div>
       </div>
     </div>

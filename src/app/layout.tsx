@@ -1,6 +1,7 @@
 "use client";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import IntlProvider from "../providers/IntlProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,9 +16,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <head>
         <title>Tomasz Chess - Play Chess Online</title>
+        <meta name="robots" content="noindex, nofollow" />
       </head>
       <body className={`${inter.variable} font-sans bg-background text-foreground min-h-screen`}>
-        {children}
+        <IntlProvider>{children}</IntlProvider>
       </body>
     </html>
   );

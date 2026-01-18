@@ -5,16 +5,24 @@ import ChessGameBot from "./../components/ChessGameBot";
 import GameViewer from "../components/GameViewer";
 import PuzzleBoard from "./../components/PuzzleBoard";
 import PuzzleManager from "./../components/PuzzleManager";
+import LanguageSwitcher from "./../components/LanguageSwitcher";
+import { useLocale } from "@/hooks/useLocale";
 
 function App() {
   const [activeTab, setActiveTab] = useState<"play" | "viewer" | "greatGames" | "manager">("play");
+  const { currentLocale, setLocale } = useLocale();
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 gap-6">
-      {/* Title */}
-      <div className="text-center">
+      {/* Language Switcher - Top Right */}
+      <div style={{ position: "absolute", top: "20px", right: "20px", zIndex: 100 }}>
+        <LanguageSwitcher currentLocale={currentLocale} onLocaleChange={setLocale} />
+      </div>
+
+      {/* Title and Navigation */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6" style={{ paddingRight: "140px" }}>
         <h1
-          className="text-5xl font-bold mb-3"
+          className="text-5xl font-bold"
           style={{
             color: "var(--text)",
             background: "linear-gradient(135deg, var(--primary-brand), var(--accent-brand))",
@@ -25,20 +33,19 @@ function App() {
         >
           ♔ Tomasz Chess ♚
         </h1>
-        <p className="text-lg" style={{ color: "var(--text-muted)" }}>
+        {/* <p className="text-lg" style={{ color: "var(--text-muted)" }}>
           Play and analyze chess
-        </p>
-      </div>
+        </p> */}
 
-      {/* Tab Navigation */}
-      <div
-        className="flex gap-2 p-1"
-        style={{
-          background: "rgba(255,255,255,0.03)",
-          borderRadius: 10,
-          border: "1px solid var(--border)",
-        }}
-      >
+        {/* Tab Navigation */}
+        <div
+          className="flex gap-2 p-1"
+          style={{
+            background: "rgba(255,255,255,0.03)",
+            borderRadius: 10,
+            border: "1px solid var(--border)",
+          }}
+        >
         <button
           onClick={() => setActiveTab("play")}
           className={`py-3 px-6 rounded-lg transition-all ${activeTab === "play" ? "font-semibold" : ""}`}
@@ -87,6 +94,7 @@ function App() {
         >
           Puzzle Manager
         </button>
+        </div>
       </div>
 
       {/* Content */}

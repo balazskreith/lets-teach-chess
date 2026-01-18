@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 
 interface TagHandlerProps {
@@ -80,7 +78,8 @@ export default function TagHandler({ tags, onTagChange }: TagHandlerProps) {
           type="text"
           value={tagInput}
           onChange={(e) => setTagInput(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onKeyUp={handleKeyPress}
+          onKeyDown={handleKeyPress}
           placeholder="Add a tag..."
           style={{
             flex: "1",
