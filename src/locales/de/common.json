@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "Tomasz Schach",
+    "subtitle": "Schach spielen und analysieren"
+  },
+  "tabs": {
+    "play": "Gegen Stockfish spielen",
+    "viewer": "PGN-Betrachter",
+    "greatGames": "Große Spiele",
+    "manager": "Puzzle-Manager"
+  },
+  "puzzleManager": {
+    "title": "Puzzle-Manager",
+    "fenLabel": "FEN-Position",
+    "fenPlaceholder": "FEN-String eingeben...",
+    "pgnLabel": "PGN",
+    "pgnPlaceholder": "PGN-String eingeben...",
+    "tagsLabel": "Tags",
+    "setPositionBtn": "Position aus FEN setzen",
+    "loadPgnBtn": "PGN laden",
+    "getCurrentFenBtn": "Aktuelles FEN abrufen",
+    "resetBtn": "Auf Startposition zurücksetzen",
+    "clearBoardBtn": "Brett leeren",
+    "currentPosition": "Aktuelle Position:",
+    "instructions": {
+      "title": "Anleitung",
+      "fen": "FEN-String eingeben und auf \"Position aus FEN setzen\" klicken",
+      "pgn": "Oder PGN einfügen und auf \"PGN laden\" klicken, um die Endposition zu sehen",
+      "getFen": "Verwenden Sie \"Aktuelles FEN abrufen\", um die aktuelle Position zu kopieren",
+      "drag": "Ziehen Sie Figuren, um die Position manuell anzuordnen (demnächst)"
+    },
+    "errors": {
+      "enterFen": "Bitte geben Sie einen FEN-String ein",
+      "invalidFen": "Ungültiger FEN-String",
+      "enterPgn": "Bitte geben Sie einen PGN-String ein",
+      "invalidPgn": "Ungültiger PGN-String"
+    }
+  },
+  "tags": {
+    "label": "Tags",
+    "placeholder": "Tag hinzufügen...",
+    "addBtn": "Hinzufügen",
+    "remove": "Entfernen"
+  }
+}

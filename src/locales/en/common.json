@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "Tomasz Chess",
+    "subtitle": "Play and analyze chess"
+  },
+  "tabs": {
+    "play": "Play vs Stockfish",
+    "viewer": "PGN Viewer",
+    "greatGames": "Great Games",
+    "manager": "Puzzle Manager"
+  },
+  "puzzleManager": {
+    "title": "Puzzle Manager",
+    "fenLabel": "FEN Position",
+    "fenPlaceholder": "Enter FEN string...",
+    "pgnLabel": "PGN",
+    "pgnPlaceholder": "Enter PGN string...",
+    "tagsLabel": "Tags",
+    "setPositionBtn": "Set Position from FEN",
+    "loadPgnBtn": "Load PGN",
+    "getCurrentFenBtn": "Get Current FEN",
+    "resetBtn": "Reset to Start",
+    "clearBoardBtn": "Clear Board",
+    "currentPosition": "Current Position:",
+    "instructions": {
+      "title": "Instructions",
+      "fen": "Enter a FEN string and click \"Set Position from FEN\"",
+      "pgn": "Or paste a PGN and click \"Load PGN\" to see the final position",
+      "getFen": "Use \"Get Current FEN\" to copy the current position",
+      "drag": "Drag pieces to arrange the position manually (coming soon)"
+    },
+    "errors": {
+      "enterFen": "Please enter a FEN string",
+      "invalidFen": "Invalid FEN string",
+      "enterPgn": "Please enter a PGN string",
+      "invalidPgn": "Invalid PGN string"
+    }
+  },
+  "tags": {
+    "label": "Tags",
+    "placeholder": "Add a tag...",
+    "addBtn": "Add",
+    "remove": "Remove"
+  }
+}

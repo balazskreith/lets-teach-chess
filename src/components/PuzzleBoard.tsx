@@ -6,6 +6,7 @@ interface PuzzleData {
   pgn: string;
   id: string;
   title?: string;
+  fen?: string;
 }
 
 interface PuzzleBoardProps {
@@ -29,38 +30,71 @@ export default function PuzzleBoard({ pgnFilePath = "/testpuzzles.txt" }: Puzzle
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
+  const [useDatabase, setUseDatabase] = useState(true);
   const puzzlesPerPage = 6;
 
   useEffect(() => {
     const loadPuzzles = async () => {
       try {
-        const response = await fetch(pgnFilePath);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
-        }
-        const pgnText = await response.text();
+        let puzzles: PuzzleData[] = [];
 
-        // Split PGN text into individual puzzles
-        const puzzles = parsePGNFile(pgnText);
-        console.log(`Loaded ${puzzles.length} puzzles from ${pgnFilePath}`);
+        if (useDatabase) {
+          // Load from MongoDB
+          const response = await fetch('/api/puzzles');
+          if (!response.ok) {
+            throw new Error(`Failed to fetch from database: ${response.status}`);
+          }
+          const data = await response.json();
+
+          puzzles = data.puzzles.map((p: any, index: number) => ({
+            pgn: p.pgn || '',
+            id: p._id,
+            title: p.tags && p.tags.length > 0 ? p.tags.join(', ') : `Puzzle ${index + 1}`,
+            fen: p.fen,
+          }));
+
+          console.log(`Loaded ${puzzles.length} puzzles from database`);
+        } else {
+          // Load from file
+          const response = await fetch(pgnFilePath);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
+          }
+          const pgnText = await response.text();
+
+          // Split PGN text into individual puzzles
+          puzzles = parsePGNFile(pgnText);
+          console.log(`Loaded ${puzzles.length} puzzles from ${pgnFilePath}`);
+        }
 
         if (puzzles.length === 0) {
-          setLoadError("No puzzles found in file");
+          setLoadError("No puzzles found");
           setLoading(false);
           return;
         }
 
         const states = puzzles.map((puzzle, index) => {
           try {
-            // Parse PGN to get starting FEN if present
-            const fenMatch = puzzle.pgn.match(/\[FEN\s+"([^"]+)"\]/);
-            const startFen = fenMatch ? fenMatch[1] : undefined;
+            // For database puzzles, use stored FEN directly if no PGN
+            let startFen: string | undefined;
+            let solutionMoves: string[] = [];
 
-            const game = new Chess(startFen);
-            game.loadPgn(puzzle.pgn);
+            if (puzzle.fen && !puzzle.pgn) {
+              // Database puzzle with FEN only (no solution moves)
+              startFen = puzzle.fen;
+              solutionMoves = [];
+            } else {
+              // Parse PGN to get starting FEN if present
+              const fenMatch = puzzle.pgn.match(/\[FEN\s+"([^"]+)"\]/);
+              startFen = fenMatch ? fenMatch[1] : puzzle.fen;
 
-            // Get the full move history as solution
-            const solutionMoves = game.history();
+              if (puzzle.pgn) {
+                const game = new Chess(startFen);
+                game.loadPgn(puzzle.pgn);
+                // Get the full move history as solution
+                solutionMoves = game.history();
+              }
+            }
 
             // Determine board orientation based on whose turn it is at the start
             const fenToUse = startFen || "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
@@ -103,7 +137,7 @@ export default function PuzzleBoard({ pgnFilePath = "/testpuzzles.txt" }: Puzzle
     };
 
     loadPuzzles();
-  }, [pgnFilePath]);
+  }, [pgnFilePath, useDatabase]);
 
   const parsePGNFile = (pgnText: string): PuzzleData[] => {
     const puzzles: PuzzleData[] = [];
@@ -239,6 +273,45 @@ export default function PuzzleBoard({ pgnFilePath = "/testpuzzles.txt" }: Puzzle
 
   return (
     <div style={{ width: "100%" }}>
+      {/* Source Toggle */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "10px",
+          marginBottom: "20px",
+        }}
+      >
+        <button
+          onClick={() => setUseDatabase(true)}
+          style={{
+            padding: "8px 16px",
+            borderRadius: "6px",
+            background: useDatabase ? "var(--primary-brand)" : "var(--surface)",
+            color: useDatabase ? "#fff" : "var(--text)",
+            border: "1px solid var(--border)",
+            cursor: "pointer",
+            fontWeight: useDatabase ? "600" : "normal",
+          }}
+        >
+          📚 Database Collection
+        </button>
+        <button
+          onClick={() => setUseDatabase(false)}
+          style={{
+            padding: "8px 16px",
+            borderRadius: "6px",
+            background: !useDatabase ? "var(--primary-brand)" : "var(--surface)",
+            color: !useDatabase ? "#fff" : "var(--text)",
+            border: "1px solid var(--border)",
+            cursor: "pointer",
+            fontWeight: !useDatabase ? "600" : "normal",
+          }}
+        >
+          📄 File Puzzles
+        </button>
+      </div>
+
       <div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         style={{ maxWidth: "1400px", width: "100%", marginBottom: "20px" }}

@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "Tomasz Ajedrez",
+    "subtitle": "Juega y analiza ajedrez"
+  },
+  "tabs": {
+    "play": "Jugar contra Stockfish",
+    "viewer": "Visor PGN",
+    "greatGames": "Grandes Partidas",
+    "manager": "Gestor de Puzzles"
+  },
+  "puzzleManager": {
+    "title": "Gestor de Puzzles",
+    "fenLabel": "Posición FEN",
+    "fenPlaceholder": "Introduce cadena FEN...",
+    "pgnLabel": "PGN",
+    "pgnPlaceholder": "Introduce cadena PGN...",
+    "tagsLabel": "Etiquetas",
+    "setPositionBtn": "Establecer Posición desde FEN",
+    "loadPgnBtn": "Cargar PGN",
+    "getCurrentFenBtn": "Obtener FEN Actual",
+    "resetBtn": "Restablecer a Posición Inicial",
+    "clearBoardBtn": "Limpiar Tablero",
+    "currentPosition": "Posición Actual:",
+    "instructions": {
+      "title": "Instrucciones",
+      "fen": "Introduce una cadena FEN y haz clic en \"Establecer Posición desde FEN\"",
+      "pgn": "O pega un PGN y haz clic en \"Cargar PGN\" para ver la posición final",
+      "getFen": "Usa \"Obtener FEN Actual\" para copiar la posición actual",
+      "drag": "Arrastra piezas para organizar la posición manualmente (próximamente)"
+    },
+    "errors": {
+      "enterFen": "Por favor, introduce una cadena FEN",
+      "invalidFen": "Cadena FEN no válida",
+      "enterPgn": "Por favor, introduce una cadena PGN",
+      "invalidPgn": "Cadena PGN no válida"
+    }
+  },
+  "tags": {
+    "label": "Etiquetas",
+    "placeholder": "Añadir etiqueta...",
+    "addBtn": "Añadir",
+    "remove": "Eliminar"
+  }
+}

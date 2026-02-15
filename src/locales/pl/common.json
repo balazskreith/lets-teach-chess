@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "Tomasz Szachy",
+    "subtitle": "Graj i analizuj szachy"
+  },
+  "tabs": {
+    "play": "Graj ze Stockfish",
+    "viewer": "Przeglądarka PGN",
+    "greatGames": "Wielkie Partie",
+    "manager": "Menedżer Łamigłówek"
+  },
+  "puzzleManager": {
+    "title": "Menedżer Łamigłówek",
+    "fenLabel": "Pozycja FEN",
+    "fenPlaceholder": "Wprowadź ciąg FEN...",
+    "pgnLabel": "PGN",
+    "pgnPlaceholder": "Wprowadź ciąg PGN...",
+    "tagsLabel": "Tagi",
+    "setPositionBtn": "Ustaw Pozycję z FEN",
+    "loadPgnBtn": "Wczytaj PGN",
+    "getCurrentFenBtn": "Pobierz Obecny FEN",
+    "resetBtn": "Resetuj do Pozycji Początkowej",
+    "clearBoardBtn": "Wyczyść Szachownicę",
+    "currentPosition": "Obecna Pozycja:",
+    "instructions": {
+      "title": "Instrukcje",
+      "fen": "Wprowadź ciąg FEN i kliknij \"Ustaw Pozycję z FEN\"",
+      "pgn": "Lub wklej PGN i kliknij \"Wczytaj PGN\", aby zobaczyć końcową pozycję",
+      "getFen": "Użyj \"Pobierz Obecny FEN\", aby skopiować obecną pozycję",
+      "drag": "Przeciągaj figury, aby ułożyć pozycję ręcznie (wkrótce)"
+    },
+    "errors": {
+      "enterFen": "Proszę wprowadzić ciąg FEN",
+      "invalidFen": "Nieprawidłowy ciąg FEN",
+      "enterPgn": "Proszę wprowadzić ciąg PGN",
+      "invalidPgn": "Nieprawidłowy ciąg PGN"
+    }
+  },
+  "tags": {
+    "label": "Tagi",
+    "placeholder": "Dodaj tag...",
+    "addBtn": "Dodaj",
+    "remove": "Usuń"
+  }
+}

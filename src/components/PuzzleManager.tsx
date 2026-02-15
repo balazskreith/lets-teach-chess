@@ -9,6 +9,8 @@ export default function PuzzleManager() {
   const [pgnInput, setPgnInput] = useState("");
   const [tags, setTags] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   const handleSetPosition = () => {
     if (!fenInput.trim()) {
@@ -85,6 +87,41 @@ export default function PuzzleManager() {
       const errorMessage = err instanceof Error ? err.message : "Invalid PGN string";
       setError(`Invalid PGN string: ${errorMessage}`);
       console.error("PGN parsing error:", err);
+    }
+  };
+
+  const handleSavePuzzle = async () => {
+    setError(null);
+    setSuccess(null);
+    setIsSaving(true);
+
+    try {
+      const response = await fetch('/api/puzzles', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fen: position,
+          pgn: pgnInput,
+          tags,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to save puzzle');
+      }
+
+      setSuccess('Puzzle saved successfully!');
+      // Clear inputs after successful save
+      setTimeout(() => setSuccess(null), 3000);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : "Failed to save puzzle";
+      setError(errorMessage);
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -200,7 +237,37 @@ export default function PuzzleManager() {
             </div>
           )}
 
+          {success && (
+            <div
+              style={{
+                background: "rgba(34,197,94,0.1)",
+                border: "1px solid rgba(34,197,94,0.3)",
+                color: "#22c55e",
+                padding: "12px",
+                borderRadius: "6px",
+                fontSize: "14px",
+                marginBottom: "16px",
+              }}
+            >
+              {success}
+            </div>
+          )}
+
           <div className="flex flex-col gap-2">
+            <button
+              onClick={handleSavePuzzle}
+              disabled={isSaving}
+              className="w-full py-2 px-4 rounded font-semibold"
+              style={{
+                background: isSaving ? "rgba(34,197,94,0.5)" : "#22c55e",
+                color: "#fff",
+                border: "none",
+                cursor: isSaving ? "not-allowed" : "pointer",
+              }}
+            >
+              {isSaving ? "Saving..." : "💾 Save Puzzle to Collection"}
+            </button>
+
             <button
               onClick={handleSetPosition}
               className="w-full py-2 px-4 rounded font-semibold"
