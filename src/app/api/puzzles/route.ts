@@ -1,6 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connectToDatabase } from '@/services/mongodb';
 
+async function savePuzzleToMongoDB(fen: string, pgn?: string, tags?: string[]) {
+  const { db } = await connectToDatabase();
+  const puzzlesCollection = db.collection('puzzles');
+
+  const puzzle = {
+    fen,
+    pgn: pgn || '',
+    tags: tags || [],
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  };
+
+  const result = await puzzlesCollection.insertOne(puzzle);
+  return result;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -13,18 +29,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { db } = await connectToDatabase();
-    const puzzlesCollection = db.collection('puzzles');
-
-    const puzzle = {
-      fen,
-      pgn: pgn || '',
-      tags: tags || [],
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    };
-
-    const result = await puzzlesCollection.insertOne(puzzle);
+    const result = await savePuzzleToMongoDB(fen, pgn, tags);
 
     return NextResponse.json(
       {

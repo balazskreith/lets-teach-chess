@@ -1,15 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import ChessGameBot from "./../components/ChessGameBot";
-import GameViewer from "../components/GameViewer";
-import PuzzleBoard from "./../components/PuzzleBoard";
-import PuzzleManager from "./../components/PuzzleManager";
-import LanguageSwitcher from "./../components/LanguageSwitcher";
+import ChessGameBot from "./../components/play/ChessGameBot";
+import GameViewer from "../components/great-games/GameViewer";
+import PuzzleBoard from "./../components/viewer/PuzzleBoard";
+import LanguageSwitcher from "./../components/common/LanguageSwitcher";
 import { useLocale } from "@/hooks/useLocale";
 
 function App() {
-  const [activeTab, setActiveTab] = useState<"play" | "viewer" | "greatGames" | "manager">("play");
+  const [activeTab, setActiveTab] = useState<"play" | "viewer" | "greatGames">("play");
   const { currentLocale, setLocale } = useLocale();
 
   return (
@@ -82,25 +81,13 @@ function App() {
         >
           Great Games
         </button>
-        <button
-          onClick={() => setActiveTab("manager")}
-          className={`py-3 px-6 rounded-lg transition-all ${activeTab === "manager" ? "font-semibold" : ""}`}
-          style={{
-            background: activeTab === "manager" ? "var(--primary-brand)" : "transparent",
-            color: activeTab === "manager" ? "#fff" : "var(--text-muted)",
-            border: "none",
-            fontSize: 15,
-          }}
-        >
-          Puzzle Manager
-        </button>
         </div>
       </div>
 
       {/* Content */}
       <div
         style={{
-          width: activeTab === "viewer" || activeTab === "greatGames" || activeTab === "manager" ? "min(1200px, 95vw)" : "min(600px, 90vw)",
+          width: activeTab === "viewer" || activeTab === "greatGames" ? "min(1200px, 95vw)" : "min(600px, 90vw)",
           boxShadow: "0 12px 40px rgba(0,0,0,0.5)",
           borderRadius: 8,
         }}
@@ -112,10 +99,6 @@ function App() {
         ) : activeTab === "viewer" ? (
           <div style={{ padding: "20px" }}>
             <PuzzleBoard />
-          </div>
-        ) : activeTab === "manager" ? (
-          <div style={{ padding: "20px" }}>
-            <PuzzleManager />
           </div>
         ) : (
           <div>
