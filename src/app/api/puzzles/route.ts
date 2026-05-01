@@ -91,13 +91,16 @@ export async function GET(request: NextRequest) {
     }
 
     const tag = searchParams.get('tag');
-    const theme = searchParams.get('theme');
+    const themes = searchParams.getAll('theme').filter(Boolean);
+    console.log('[GET /api/puzzles] url:', request.url, 'themes raw:', searchParams.getAll('theme'), 'themes filtered:', themes);
 
     if (tag !== null && !TAG_REGEX.test(tag)) {
       return NextResponse.json({ error: 'Invalid tag parameter' }, { status: 400 });
     }
-    if (theme !== null && !TAG_REGEX.test(theme)) {
-      return NextResponse.json({ error: 'Invalid theme parameter' }, { status: 400 });
+    for (const t of themes) {
+      if (!TAG_REGEX.test(t)) {
+        return NextResponse.json({ error: 'Invalid theme parameter' }, { status: 400 });
+      }
     }
 
     const rawMinRating = searchParams.get('minRating');
@@ -118,7 +121,7 @@ export async function GET(request: NextRequest) {
     const limit = Number.isFinite(rawLimit) && rawLimit >= 1 ? Math.min(rawLimit, MAX_LIMIT) : DEFAULT_LIMIT;
 
     const { puzzles, total } = await findPuzzles(
-      { tag: tag ?? undefined, theme: theme ?? undefined, minRating, maxRating },
+      { tag: tag ?? undefined, themes: themes.length > 0 ? themes : undefined, minRating, maxRating },
       page,
       limit
     );

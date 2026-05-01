@@ -21,6 +21,7 @@ interface PuzzleState {
   completed: boolean;
   showIncorrect: boolean;
   boardOrientation: "white" | "black";
+  triggerSquares: { from: string; to: string } | null;
 }
 
 const PUZZLES_PER_PAGE = 6;
@@ -33,7 +34,7 @@ function parsePuzzle(puzzle: PuzzleData, index: number): PuzzleState {
     if (puzzle.fen && !puzzle.pgn) {
       startFen = puzzle.fen;
     } else {
-      const fenMatch = puzzle.pgn.match(/\[FEN\s+"([^"]+)"\]/);
+      const fenMatch = puzzle.pgn.match(/\[FEN\s+"([^"]+)"]/);
       startFen = fenMatch ? fenMatch[1] : puzzle.fen;
 
       if (puzzle.pgn) {
@@ -44,19 +45,38 @@ function parsePuzzle(puzzle: PuzzleData, index: number): PuzzleState {
     }
 
     const fenToUse = startFen || "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-    const boardOrientation: "white" | "black" = fenToUse.split(" ")[1] === "b" ? "black" : "white";
+
+    // Apply the opponent's trigger move (solutionMoves[0]) and record its squares.
+    let currentFen = fenToUse;
+    let currentMoveIndex = 0;
+    let triggerSquares: { from: string; to: string } | null = null;
+    if (solutionMoves.length > 0) {
+      try {
+        const triggerGame = new Chess(fenToUse);
+        const move = triggerGame.move(solutionMoves[0]);
+        currentFen = triggerGame.fen();
+        currentMoveIndex = 1;
+        triggerSquares = { from: move.from, to: move.to };
+      } catch {
+        // leave currentFen / currentMoveIndex as-is if trigger move fails
+      }
+    }
+
+    // Board orientation: solver is whoever is active after the trigger move.
+    const boardOrientation: "white" | "black" = currentFen.split(" ")[1] === "b" ? "black" : "white";
 
     return {
       id: puzzle.id,
       startFen: fenToUse,
-      currentFen: fenToUse,
+      currentFen,
       solutionMoves,
-      currentMoveIndex: 0,
+      currentMoveIndex,
       error: null,
       title: puzzle.title || `Puzzle ${index + 1}`,
       completed: false,
       showIncorrect: false,
       boardOrientation,
+      triggerSquares,
     };
   } catch (err) {
     return {
@@ -70,6 +90,7 @@ function parsePuzzle(puzzle: PuzzleData, index: number): PuzzleState {
       completed: false,
       showIncorrect: false,
       boardOrientation: "white",
+      triggerSquares: null,
     };
   }
 }
@@ -80,7 +101,7 @@ export default function PuzzleBoard() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPuzzles, setTotalPuzzles] = useState(0);
-  const [filters, setFilters] = useState<PuzzleFilters>({ minRating: null, maxRating: null, theme: null });
+  const [filters, setFilters] = useState<PuzzleFilters>({ minRating: null, maxRating: null, themes: [] });
   const totalPages = Math.ceil(totalPuzzles / PUZZLES_PER_PAGE);
 
   const loadPage = useCallback(async (page: number) => {
@@ -90,7 +111,7 @@ export default function PuzzleBoard() {
       const params = new URLSearchParams({ page: String(page), limit: String(PUZZLES_PER_PAGE) });
       if (filters.minRating !== null) params.set('minRating', String(filters.minRating));
       if (filters.maxRating !== null) params.set('maxRating', String(filters.maxRating));
-      if (filters.theme) params.set('theme', filters.theme);
+      filters.themes.forEach((t) => params.append('theme', t));
 
       const response = await fetch(`/api/puzzles?${params}`);
       if (!response.ok) throw new Error(`Failed to fetch: ${response.status}`);
@@ -235,6 +256,10 @@ export default function PuzzleBoard() {
                   options={{
                     position: state.currentFen,
                     boardOrientation: state.boardOrientation,
+                    squareStyles: state.triggerSquares ? {
+                      [state.triggerSquares.from]: { background: "rgba(255, 170, 0, 0.45)" },
+                      [state.triggerSquares.to]: { background: "rgba(255, 170, 0, 0.65)" },
+                    } : undefined,
                     onPieceDrop: ({ sourceSquare, targetSquare }: { sourceSquare: string; targetSquare: string | null }) => {
                       if (!targetSquare) return false;
                       return handlePieceDrop(index, sourceSquare, targetSquare);
