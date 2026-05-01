@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { locales, localeNames, type Locale } from "../i18n/config";
+import { locales, localeNames, type Locale } from "../../i18n/config";
 
 interface LanguageSwitcherProps {
   currentLocale: Locale;

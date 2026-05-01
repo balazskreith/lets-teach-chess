@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface TagHandlerProps {
   tags: string[];
@@ -6,26 +6,28 @@ interface TagHandlerProps {
 }
 
 export default function TagHandler({ tags, onTagChange }: TagHandlerProps) {
-  const [tagInput, setTagInput] = useState("");
+  const [availableThemes, setAvailableThemes] = useState<string[]>([]);
 
-  const handleAddTag = () => {
-    const trimmedTag = tagInput.trim();
-    if (trimmedTag && !tags.includes(trimmedTag)) {
-      onTagChange([...tags, trimmedTag]);
-      setTagInput("");
+  useEffect(() => {
+    fetch('/api/puzzles?distinctThemes=true')
+      .then((r) => r.json())
+      .then((data) => setAvailableThemes(data.themes ?? []))
+      .catch(() => {});
+  }, []);
+
+  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selected = e.target.value;
+    if (selected && !tags.includes(selected)) {
+      onTagChange([...tags, selected]);
     }
+    e.target.value = "";
   };
 
-  const handleRemoveTag = (tagToRemove: string) => {
-    onTagChange(tags.filter((tag) => tag !== tagToRemove));
+  const handleRemove = (tag: string) => {
+    onTagChange(tags.filter((t) => t !== tag));
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleAddTag();
-    }
-  };
+  const unselected = availableThemes.filter((t) => !tags.includes(t));
 
   return (
     <div>
@@ -33,7 +35,7 @@ export default function TagHandler({ tags, onTagChange }: TagHandlerProps) {
         Tags
       </label>
 
-      {/* Tags Display */}
+      {/* Selected tags */}
       {tags.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-3">
           {tags.map((tag) => (
@@ -52,7 +54,7 @@ export default function TagHandler({ tags, onTagChange }: TagHandlerProps) {
             >
               {tag}
               <button
-                onClick={() => handleRemoveTag(tag)}
+                onClick={() => handleRemove(tag)}
                 style={{
                   background: "transparent",
                   border: "none",
@@ -72,41 +74,31 @@ export default function TagHandler({ tags, onTagChange }: TagHandlerProps) {
         </div>
       )}
 
-      {/* Tag Input */}
-      <div className="flex gap-2">
-        <input
-          type="text"
-          value={tagInput}
-          onChange={(e) => setTagInput(e.target.value)}
-          onKeyUp={handleKeyPress}
-          onKeyDown={handleKeyPress}
-          placeholder="Add a tag..."
-          style={{
-            flex: "1",
-            padding: "8px 12px",
-            borderRadius: "6px",
-            background: "rgba(255,255,255,0.03)",
-            color: "var(--text)",
-            border: "1px solid var(--border)",
-            fontSize: "14px",
-          }}
-        />
-        <button
-          onClick={handleAddTag}
-          style={{
-            padding: "8px 16px",
-            borderRadius: "6px",
-            background: "var(--surface)",
-            color: "var(--text)",
-            border: "1px solid var(--border)",
-            cursor: "pointer",
-            fontSize: "14px",
-            fontWeight: "500",
-          }}
-        >
-          Add
-        </button>
-      </div>
+      {/* Theme dropdown */}
+      <select
+        onChange={handleSelect}
+        defaultValue=""
+        disabled={unselected.length === 0}
+        style={{
+          width: "100%",
+          padding: "8px 12px",
+          borderRadius: "6px",
+          background: "rgba(255,255,255,0.03)",
+          color: "var(--text)",
+          border: "1px solid var(--border)",
+          fontSize: "14px",
+          cursor: unselected.length === 0 ? "not-allowed" : "pointer",
+        }}
+      >
+        <option value="" disabled>
+          {unselected.length === 0 ? "All themes selected" : "Select a theme…"}
+        </option>
+        {unselected.map((theme) => (
+          <option key={theme} value={theme}>
+            {theme}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

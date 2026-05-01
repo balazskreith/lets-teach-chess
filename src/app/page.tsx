@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import ChessGameBot from "./../components/play/ChessGameBot";
-import GameViewer from "../components/great-games/GameViewer";
+import GameViewer from "../components/greatGames/GameViewer";
 import PuzzleBoard from "./../components/viewer/PuzzleBoard";
 import LanguageSwitcher from "./../components/common/LanguageSwitcher";
 import { useLocale } from "@/hooks/useLocale";
