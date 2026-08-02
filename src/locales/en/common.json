@@ -1,7 +1,7 @@
 {
   "app": {
-    "title": "Tomasz Chess",
-    "subtitle": "Play and analyze chess"
+    "title": "Train Chess Online",
+    "subtitle": "Solve tactics, train online"
   },
   "tabs": {
     "play": "Play vs Stockfish",

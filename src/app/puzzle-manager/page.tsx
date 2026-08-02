@@ -208,7 +208,7 @@ export default function PuzzleManagerPage() {
             backgroundClip: "text",
           }}
         >
-          ♔ Puzzle Manager ♚
+          ♚
         </h1>
       </div>
 

@@ -3,12 +3,33 @@ import { useState, useRef, useEffect } from 'react';
 import { Chessboard } from "react-chessboard";
 import type { SquareHandlerArgs, PieceDropHandlerArgs } from "react-chessboard";
 
+function getGameResult(game: Chess): string {
+  if (game.isCheckmate()) {
+    return game.turn() === 'b' ? 'Checkmate — You win!' : 'Checkmate — Engine wins!';
+  }
+  if (game.isStalemate()) return 'Draw by stalemate';
+  if (game.isInsufficientMaterial()) return 'Draw — Insufficient material';
+  if (game.isThreefoldRepetition()) return 'Draw — Threefold repetition';
+  return 'Draw';
+}
+
+const DIFFICULTY_LEVELS = [
+    { label: 'Beginner',     skillLevel: 1,  depth: 3  },
+    { label: 'Easy',         skillLevel: 5,  depth: 5  },
+    { label: 'Intermediate', skillLevel: 10, depth: 8  },
+    { label: 'Advanced',     skillLevel: 15, depth: 12 },
+    { label: 'Expert',       skillLevel: 20, depth: 15 },
+] as const;
+
+type DifficultyIndex = 0 | 1 | 2 | 3 | 4;
+
 const ChessGameBot: React.FC = () => {
     // create a chess game using a ref to always have access to the latest game state within closures and maintain the game state across renders
     const chessGameRef = useRef(new Chess());
     const chessGame = chessGameRef.current;
     const engineRef = useRef<Worker | null>(null);
     const isEngineReadyRef = useRef(false);
+    const [difficultyIndex, setDifficultyIndex] = useState<DifficultyIndex>(2);
 
     // Initialize Stockfish engine
     useEffect(() => {
@@ -102,6 +123,8 @@ const ChessGameBot: React.FC = () => {
     const [optionSquares, setOptionSquares] = useState({});
     const [isEngineThinking, setIsEngineThinking] = useState(false);
     const [isEngineReady, setIsEngineReady] = useState(false);
+    const [gameResult, setGameResult] = useState<string | null>(null);
+    const [playerColor, setPlayerColor] = useState<'w' | 'b'>('w');
 
     // Make Stockfish engine move
     async function makeEngineMove() {
@@ -126,9 +149,11 @@ const ChessGameBot: React.FC = () => {
       console.log("Setting engine thinking to true");
       setIsEngineThinking(true);
 
+      const { skillLevel, depth } = DIFFICULTY_LEVELS[difficultyIndex];
+
       try {
         console.log("Getting best move for position:", chessGame.fen());
-        const bestMove = await getBestMove(chessGame.fen());
+        const bestMove = await getBestMove(chessGame.fen(), skillLevel, depth);
         console.log("Received best move:", bestMove);
 
         // Parse the move (format: e2e4)
@@ -142,6 +167,10 @@ const ChessGameBot: React.FC = () => {
 
         setChessPosition(chessGame.fen());
         console.log("New position:", chessGame.fen());
+
+        if (chessGame.isGameOver()) {
+          setGameResult(getGameResult(chessGame));
+        }
       } catch (error) {
         console.error("Error getting best move:", error);
       } finally {
@@ -150,7 +179,23 @@ const ChessGameBot: React.FC = () => {
       }
     }
 
-    async function getBestMove(fen: string, depth: number = 12): Promise<string> {
+    function handleNewGame(color: 'w' | 'b' = playerColor) {
+      chessGameRef.current.reset();
+      setChessPosition(chessGameRef.current.fen());
+      setGameResult(null);
+      setMoveFrom('');
+      setOptionSquares({});
+      if (color === 'b') {
+        setTimeout(() => makeEngineMove(), 300);
+      }
+    }
+
+    function handleColorChange(color: 'w' | 'b') {
+      setPlayerColor(color);
+      handleNewGame(color);
+    }
+
+    async function getBestMove(fen: string, skillLevel: number, depth: number): Promise<string> {
       return new Promise((resolve, reject) => {
         if (!engineRef.current) {
           reject(new Error("Stockfish engine not initialized"));
@@ -174,8 +219,9 @@ const ChessGameBot: React.FC = () => {
         engine.addMessageListener(handleMessage);
 
         // Send commands to engine
-        console.log("Sending to engine:", `position fen ${fen}`);
+        console.log("Sending to engine:", `position fen ${fen}`, `skill level ${skillLevel}`, `depth ${depth}`);
         engine.postMessage("ucinewgame");
+        engine.postMessage(`setoption name Skill Level value ${skillLevel}`);
         engine.postMessage(`position fen ${fen}`);
         engine.postMessage(`go depth ${depth}`);
       });
@@ -223,8 +269,8 @@ const ChessGameBot: React.FC = () => {
     }
 
     function onSquareClick({ square, piece }: SquareHandlerArgs) {
-      // Don't allow moves while engine is thinking
-      if (isEngineThinking) {
+      // Don't allow moves while engine is thinking, game is over, or it's not player's turn
+      if (isEngineThinking || gameResult !== null || chessGame.turn() !== playerColor) {
         return;
       }
 
@@ -290,6 +336,12 @@ const ChessGameBot: React.FC = () => {
       setMoveFrom('');
       setOptionSquares({});
 
+      // check if game is over after player's move
+      if (chessGame.isGameOver()) {
+        setGameResult(getGameResult(chessGame));
+        return;
+      }
+
       // make Stockfish move after a short delay
       setTimeout(() => {
         makeEngineMove();
@@ -298,8 +350,8 @@ const ChessGameBot: React.FC = () => {
 
     // handle piece drop
     function onPieceDrop({ sourceSquare, targetSquare }: PieceDropHandlerArgs) {
-      // Don't allow moves while engine is thinking
-      if (isEngineThinking) {
+      // Don't allow moves while engine is thinking, game is over, or it's not player's turn
+      if (isEngineThinking || gameResult !== null || chessGame.turn() !== playerColor) {
         return false;
       }
 
@@ -323,6 +375,12 @@ const ChessGameBot: React.FC = () => {
         setMoveFrom('');
         setOptionSquares({});
 
+        // check if game is over after player's move
+        if (chessGame.isGameOver()) {
+          setGameResult(getGameResult(chessGame));
+          return true;
+        }
+
         // make Stockfish move after a short delay
         setTimeout(() => {
           makeEngineMove();
@@ -343,11 +401,38 @@ const ChessGameBot: React.FC = () => {
       position: chessPosition,
       squareStyles: optionSquares,
       id: 'click-or-drag-to-move',
+      boardOrientation: playerColor === 'w' ? 'white' : 'black' as 'white' | 'black',
     };
 
     // render the chessboard
     return (
       <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-sm font-medium" style={{ color: 'var(--text-muted)' }}>
+            Engine strength
+          </span>
+          <div className="flex gap-2">
+            {DIFFICULTY_LEVELS.map((level, index) => (
+              <button
+                key={level.label}
+                onClick={() => setDifficultyIndex(index as DifficultyIndex)}
+                disabled={isEngineThinking}
+                className="px-3 py-1 rounded text-sm font-medium transition-all"
+                style={{
+                  background: difficultyIndex === index ? 'var(--primary-brand)' : 'transparent',
+                  color: difficultyIndex === index ? '#fff' : 'var(--text-muted)',
+                  border: '1px solid',
+                  borderColor: difficultyIndex === index ? 'var(--primary-brand)' : 'var(--text-muted)',
+                  opacity: isEngineThinking ? 0.5 : 1,
+                  cursor: isEngineThinking ? 'not-allowed' : 'pointer',
+                }}
+              >
+                {level.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {!isEngineReady && (
           <div className="text-sm font-medium text-yellow-600">
             Loading Stockfish engine...
@@ -363,7 +448,93 @@ const ChessGameBot: React.FC = () => {
             Stockfish is thinking...
           </div>
         )}
-        <Chessboard options={chessboardOptions} />
+        <div style={{ display: 'flex', alignItems: 'flex-start', width: '100%', gap: '8px' }}>
+          <div style={{ position: 'relative', flex: 1 }}>
+            <Chessboard options={chessboardOptions} />
+          {gameResult !== null && (
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '16px',
+                background: 'rgba(0, 0, 0, 0.72)',
+                borderRadius: '4px',
+              }}
+            >
+              <div
+                style={{
+                  color: '#fff',
+                  fontSize: '22px',
+                  fontWeight: '700',
+                  textAlign: 'center',
+                  padding: '0 24px',
+                }}
+              >
+                {gameResult}
+              </div>
+              <div style={{ display: 'flex', gap: '12px' }}>
+                <button
+                  onClick={() => handleNewGame(playerColor)}
+                  style={{
+                    padding: '10px 24px',
+                    borderRadius: '6px',
+                    background: 'var(--primary-brand)',
+                    color: '#fff',
+                    border: 'none',
+                    fontSize: '15px',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                  }}
+                >
+                  New Game
+                </button>
+                <button
+                  disabled
+                  style={{
+                    padding: '10px 24px',
+                    borderRadius: '6px',
+                    background: 'transparent',
+                    color: 'rgba(255,255,255,0.5)',
+                    border: '1px solid rgba(255,255,255,0.3)',
+                    fontSize: '15px',
+                    fontWeight: '600',
+                    cursor: 'not-allowed',
+                  }}
+                >
+                  Analyse
+                </button>
+              </div>
+            </div>
+          )}
+          </div>
+          <button
+            onClick={() => handleColorChange(playerColor === 'w' ? 'b' : 'w')}
+            disabled={isEngineThinking}
+            title={`Playing as ${playerColor === 'w' ? 'White' : 'Black'} — click to switch`}
+            style={{
+              width: '32px',
+              height: '32px',
+              borderRadius: '50%',
+              background: playerColor === 'w' ? 'rgba(255,255,255,0.85)' : 'rgba(30,30,30,0.85)',
+              border: '2px solid rgba(128,128,128,0.4)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '18px',
+              lineHeight: 1,
+              cursor: isEngineThinking ? 'not-allowed' : 'pointer',
+              opacity: isEngineThinking ? 0.5 : 1,
+              boxShadow: '0 1px 4px rgba(0,0,0,0.4)',
+              flexShrink: 0,
+            }}
+          >
+            {playerColor === 'w' ? '♔' : '♚'}
+          </button>
+        </div>
       </div>
     );
 };

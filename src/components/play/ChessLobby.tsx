@@ -88,7 +88,7 @@ export default function ChessLobby({
               backgroundClip: "text",
             }}
           >
-            ♔ Tomasz Chess ♚
+            ♚
           </h1>
           <p className="text-lg" style={{ color: "var(--text-muted)" }}>
             Play chess online with friends

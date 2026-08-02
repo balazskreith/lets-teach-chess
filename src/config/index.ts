@@ -1,4 +1,4 @@
-// Global configuration for the Tomasz Chess application
+// Global configuration for the Train Chess application
 'use client';
 
 export const config = {

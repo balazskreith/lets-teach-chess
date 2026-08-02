@@ -79,7 +79,7 @@ export class CloudSfuService {
       return await response.json();
     } catch (error) {
       if (this.enableDebugLogs) {
-        console.error(`Tomasz Chess Request failed [${method} ${url}]:`, error);
+        console.error(`Request failed [${method} ${url}]:`, error);
       }
       throw error;
     }

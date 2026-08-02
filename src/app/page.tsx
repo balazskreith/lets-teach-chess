@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import ChessGameBot from "./../components/play/ChessGameBot";
 import GameViewer from "../components/greatGames/GameViewer";
 import PuzzleBoard from "./../components/viewer/PuzzleBoard";
-import LanguageSwitcher from "./../components/common/LanguageSwitcher";
 import { useLocale } from "@/hooks/useLocale";
 
 function App() {
@@ -12,11 +11,11 @@ function App() {
   const { currentLocale, setLocale } = useLocale();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 gap-6">
+    <div className="min-h-screen flex flex-col items-center justify-start p-4 pt-8 gap-6">
       {/* Language Switcher - Top Right */}
-      <div style={{ position: "absolute", top: "20px", right: "20px", zIndex: 100 }}>
+      {/* <div style={{ position: "absolute", top: "20px", right: "20px", zIndex: 100 }}>
         <LanguageSwitcher currentLocale={currentLocale} onLocaleChange={setLocale} />
-      </div>
+      </div> */}
 
       {/* Title and Navigation */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-6" style={{ paddingRight: "140px" }}>
@@ -30,7 +29,7 @@ function App() {
             backgroundClip: "text",
           }}
         >
-          ♔ Tomasz Chess ♚
+          ♚
         </h1>
         {/* <p className="text-lg" style={{ color: "var(--text-muted)" }}>
           Play and analyze chess
@@ -82,8 +81,19 @@ function App() {
           Great Games
         </button>
         </div>
+        <h1
+          className="text-5xl font-bold"
+          style={{
+              color: "var(--text)",
+              background: "linear-gradient(135deg, var(--primary-brand), var(--accent-brand))",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+          }}
+        >
+          ♔
+        </h1>
       </div>
-
       {/* Content */}
       <div
         style={{

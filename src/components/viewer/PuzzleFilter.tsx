@@ -79,8 +79,8 @@ export default function PuzzleFilter({ onApply }: PuzzleFilterProps) {
   const isActive = applied.minRating !== null || applied.maxRating !== null || applied.themes.length > 0;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "20px" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", flexWrap: "wrap" }}>
         {/* Theme selector */}
         <select
           value=""

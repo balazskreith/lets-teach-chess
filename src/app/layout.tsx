@@ -15,7 +15,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <head>
-        <title>Tomasz Chess - Play Chess Online</title>
+        <title>Train Chess Online</title>
         <meta name="robots" content="noindex, nofollow" />
       </head>
       <body className={`${inter.variable} font-sans bg-background text-foreground min-h-screen`}>

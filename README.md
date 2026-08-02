@@ -1,3 +1,3 @@
-# Tomasz Chess
+# Train Chess Online
 
 
